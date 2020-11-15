@@ -1,9 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpTokenInterceptor } from './interceptors/http-token.interceptor';
-
-
 
 @NgModule({
   declarations: [],
@@ -15,4 +13,10 @@ import { HttpTokenInterceptor } from './interceptors/http-token.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true },
   ],
 })
-export class CoreModule { }
+export class CoreModule {
+  construcor(@Optional() @SkipSelf() parentModule: CoreModule){
+    if(parentModule) {
+      throw new Error("Core module is already loaded ...");
+    }
+  }
+}
