@@ -1,0 +1,23 @@
+.dashboard-header {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 15px #f4f4f4;
+    &-title {
+      padding: 0;
+      margin: 0;
+      color: #4cb6e6;
+      font-size: medium;
+      text-align: center;
+      padding-top: 10px;
+    }
+    &-body {
+      display: flex;
+      padding: 40px;
+      justify-content: space-around;
+      color: #adb1b2;
+
+    }
+    img {
+      height: 4rem;
+    }
+  }

@@ -1,1 +1,4 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <app-dashboard-header></app-dashboard-header>
+  <app-feed-item-list *ngIf="feedItems" [feedItems]="feedItems"></app-feed-item-list>
+</div>

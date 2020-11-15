@@ -1,0 +1,9 @@
+<div class="comment">
+    <div class="comment-header">
+        {{ comment.author.firstName }} {{ comment.author.lastName}}
+    </div>
+    <div [innerHtml]="comment.content" class="comment-content"></div>
+    <div class="comment-footer">
+        {{comment.date | transformToUntilDate}} - {{ comment.likes | number }}Thanx - <span (click)="onThanx()" class="thanx">Thanx ! </span> - <span>Supprimer</span>
+    </div>
+</div>

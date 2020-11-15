@@ -8,12 +8,12 @@ import { DashboardService } from '../core/services/dashboard.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  feedItems: FeedItem[];
   constructor(private dashboardService: DashboardService) { }
 
   ngOnInit(): void {
     this.dashboardService.getFeedItems({direction: "newest"}).subscribe((feedItems: FeedItem[]) => {
-      console.log("feedItems", feedItems);
+      this.feedItems = feedItems;
     });
   }
 

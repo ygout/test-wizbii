@@ -1,0 +1,66 @@
+<section class="publication card" *ngIf="feedItem.type === 'publication'">
+    <div class="card-row">
+      <div class="poster">
+        <div class="poster-images"></div>
+        <div class="poster-content">
+          <div class="poster-content-row">
+            <span class="display-name">{{
+              feedItem.publication.poster.displayName
+            }}</span>
+            <span class="date"> - {{ feedItem.date | transformToUntilDate }} </span>
+          </div>
+          <div class="poster-content-row">
+            <span>{{ feedItem.publication.poster.slug }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-row small" *ngIf="feedItem.publication.tags.length">
+      <ul class="tags">
+        <li class="tag" *ngFor="let tag of feedItem.publication.tags">
+          #{{ tag.name }}
+        </li>
+      </ul>
+    </div>
+    <div
+      class="card-row"
+      *ngIf="feedItem.publication.content && !feedItem.publication.shared_job"
+    >
+      <div class="content" [innerHTML]="feedItem.publication.content"></div>
+    </div>
+    <div
+      class="card-row full-width"
+      *ngIf="feedItem.publication.attachment_picture"
+    >
+      <figure class="attachment">
+        <img [attr.src]="feedItem.publication.attachment_picture" alt="" />
+      </figure>
+    </div>
+    <div class="card-row" *ngIf="feedItem.publication.shared_job">
+      <div class="content-row">
+        {{ feedItem.publication.shared_job.contract.title_short }} -
+        {{ feedItem.publication.shared_job.contract.title }}
+      </div>
+      <div class="content-row">
+        {{ feedItem.publication.shared_job.location.country }} -
+        {{ feedItem.publication.shared_job.location.department }}-
+        {{ feedItem.publication.shared_job.location.display_value }}
+      </div>
+      <br /><strong>Mission:</strong><br />
+      <br />
+      <div
+        class="content"
+        [innerHTML]="feedItem.publication.shared_job.mission"
+      ></div>
+      <br /><strong>Profile:</strong><br />
+      <br />
+      <div
+        class="content"
+        [innerHTML]="feedItem.publication.shared_job.profile"
+      ></div>
+    </div>
+    <div class="card-row">
+      <app-comment-list [feedItem]="feedItem"></app-comment-list>
+    </div>
+  </section>
+  

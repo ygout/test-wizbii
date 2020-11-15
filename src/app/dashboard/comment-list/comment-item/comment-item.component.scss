@@ -1,0 +1,20 @@
+.comment {
+  padding: 10px;
+
+  &-header {
+    color: #4cb6e6;
+    font-weight: bold;
+  }
+
+  &-content {
+    padding-top: 10px;
+    overflow-wrap: break-word;
+  }
+  &-footer {
+    color: #c6c9ca;
+  }
+}
+
+.thanx {
+  cursor: pointer;
+}
