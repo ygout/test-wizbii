@@ -89,3 +89,24 @@
     cursor: pointer;
   }
 }
+
+.card-buttons {
+  padding: 40px;
+  display: flex;
+  justify-content: space-around;
+  color: #adb1b2;
+}
+
+.card-buttons a {
+  cursor: pointer;
+}
+
+.content {
+  &-row {
+    color: #adb1b2;
+  }
+}
+hr {
+  border: 0;
+  border-top: 2px solid #eee;
+}
