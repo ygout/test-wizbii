@@ -5,5 +5,5 @@ export interface Comment {
     content: string;
     date: string;
     likes: number;
-    publication_id: string;
+    feedItemId: string;
 }
