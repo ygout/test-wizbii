@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_BASE: "https://api.wizbii.com",
+  credentials: {
+    username: "decouverte+2@wizbii.com",
+    password: "decouverte",
+    client_id: "test",
+    grant_type: "password",
+  },
 };
 
 /*
