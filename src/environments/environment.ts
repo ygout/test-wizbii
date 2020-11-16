@@ -4,12 +4,12 @@
 
 export const environment = {
   production: false,
-  API_BASE: "https://api.wizbii.com",
+  API_BASE: 'https://api.wizbii.com',
   credentials: {
-    username: "decouverte+2@wizbii.com",
-    password: "decouverte",
-    client_id: "test",
-    grant_type: "password",
+    username: 'decouverte+2@wizbii.com',
+    password: 'decouverte',
+    client_id: 'test',
+    grant_type: 'password',
   },
 };
 

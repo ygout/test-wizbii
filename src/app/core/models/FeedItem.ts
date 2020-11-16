@@ -93,7 +93,7 @@ interface Location2 {
   country_short: string;
   points: Points;
   geo: Center;
-  extra: Extra;
+  extra: any;
 }
 
 interface Contract {
@@ -125,10 +125,8 @@ interface Hometab {
 interface Location {
   points: Points;
   geo: Center;
-  extra: Extra;
+  extra: any;
 }
-
-interface Extra {}
 
 interface Points {
   center: Center;
@@ -215,10 +213,8 @@ interface Link {
 
 interface Location {
   geo: Geo;
-  extra: Extra;
+  extra: any;
 }
-
-interface Extra {}
 
 interface Geo {
   lat: number;

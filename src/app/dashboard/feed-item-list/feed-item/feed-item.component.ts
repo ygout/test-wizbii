@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from '@angular/core';
 import { DashboardService } from 'src/app/core/services/dashboard.service';
 
 @Component({
-  selector: "app-feed-item",
-  templateUrl: "./feed-item.component.html",
-  styleUrls: ["./feed-item.component.scss"],
+  selector: 'app-feed-item',
+  templateUrl: './feed-item.component.html',
+  styleUrls: ['./feed-item.component.scss'],
 })
 export class FeedItemComponent implements OnInit {
   @Input() feedItem;
@@ -16,12 +16,12 @@ export class FeedItemComponent implements OnInit {
    * Send a thanx
    */
   onSendThanx(): void {
-    if(!this.isAlreadyThanx) {
+    if (!this.isAlreadyThanx) {
       this.dashboardService.sendThanxOnFeedItem(this.feedItem);
       this.isAlreadyThanx = true;
     }
   }
   onShare() {
-    console.log("Sahre with your friends ! ");
+    console.log('Sahre with your friends ! ');
   }
 }

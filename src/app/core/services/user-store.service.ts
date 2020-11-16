@@ -7,21 +7,23 @@ import { UserInfo } from '../models';
 })
 export class UserStoreService {
 
-  private readonly _userInfo: BehaviorSubject<UserInfo> = new BehaviorSubject<UserInfo>({firstName: null, lastName: null});
+  private readonly userInfo: BehaviorSubject<UserInfo> = new BehaviorSubject<UserInfo>({ firstName: null, lastName: null });
 
   constructor() { }
 
-   /**
-   * Use to update user info
-   * @data type: UserInfo
+  /**
+   * Update user info subject
+   * @param userInfo: UserInfo
    */
   updateUserInfo(userInfo: UserInfo) {
-    this._userInfo.next(userInfo);
+    this.userInfo.next(userInfo);
   }
- /**
-   * Recover user info
+
+  /**
+   * Get user info
+   * @returns BehaviorSubject<UserInfo>
    */
   getUserInfo(): BehaviorSubject<UserInfo> {
-    return this._userInfo;
+    return this.userInfo;
   }
 }

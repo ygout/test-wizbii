@@ -4,12 +4,8 @@
       <div class="poster-images"></div>
       <div class="poster-content">
         <div class="poster-content-row">
-          <span class="display-name">{{
-            feedItem.publication.poster.displayName
-          }}</span>
-          <span class="date">
-            - {{ feedItem.date | transformToUntilDate }}
-          </span>
+          <span class="display-name">{{ feedItem.publication.poster.displayName }}</span>
+          <span class="date"> - {{ feedItem.date | transformToUntilDate }} </span>
         </div>
         <div class="poster-content-row">
           <span>{{ feedItem.publication.poster.slug }}</span>
@@ -19,21 +15,13 @@
   </div>
   <div class="card-row small" *ngIf="feedItem.publication.tags.length">
     <ul class="tags">
-      <li class="tag" *ngFor="let tag of feedItem.publication.tags">
-        #{{ tag.name }}
-      </li>
+      <li class="tag" *ngFor="let tag of feedItem.publication.tags">#{{ tag.name }}</li>
     </ul>
   </div>
-  <div
-    class="card-row"
-    *ngIf="feedItem.publication.content && !feedItem.publication.shared_job"
-  >
+  <div class="card-row" *ngIf="feedItem.publication.content && !feedItem.publication.shared_job">
     <div class="content" [innerHTML]="feedItem.publication.content"></div>
   </div>
-  <div
-    class="card-row full-width"
-    *ngIf="feedItem.publication.attachment_picture"
-  >
+  <div class="card-row full-width" *ngIf="feedItem.publication.attachment_picture">
     <figure class="attachment">
       <img [attr.src]="feedItem.publication.attachment_picture" alt="" />
     </figure>
@@ -50,28 +38,20 @@
     </div>
     <br /><strong>Mission:</strong><br />
     <br />
-    <div
-      class="content"
-      [innerHTML]="feedItem.publication.shared_job.mission"
-    ></div>
+    <div class="content" [innerHTML]="feedItem.publication.shared_job.mission"></div>
     <br /><strong>Profile:</strong><br />
     <br />
-    <div
-      class="content"
-      [innerHTML]="feedItem.publication.shared_job.profile"
-    ></div>
+    <div class="content" [innerHTML]="feedItem.publication.shared_job.profile"></div>
   </div>
   <div class="card-row">
     <div class="card-buttons">
-      <a (click)="onSendThanx()"
-        ><i class="fa fa-plus"></i> Envoyer un Thanx !</a
-      >
+      <a (click)="onSendThanx()"><i class="fa fa-plus"></i> Envoyer un Thanx !</a>
       <a (click)="onShare()"><i class="fa fa-share"></i> Partager à un ami !</a>
     </div>
   </div>
-  <div class="card-row small">
-    <span> {{ feedItem.publication.comments.length }} - commentaire </span>
-    <span>{{ feedItem.publication.likes.length }} - Thanx</span>
+  <div class="card-row">
+    <span class="blue"> {{ feedItem.publication.comments.length }} commentaire </span>
+    <span class="brown"> - {{ feedItem.publication.likes.length }} Thanx</span>
     <hr />
   </div>
   <div class="card-row">

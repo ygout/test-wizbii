@@ -1,5 +1,5 @@
 export interface FeedItemProxy {
-    id: string;
-    type: string;
-    position: number;
-  }
+  id: string;
+  type: string;
+  position: number;
+}

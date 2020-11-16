@@ -5,11 +5,11 @@ import { UserStoreService } from 'src/app/core/services/user-store.service';
 @Component({
   selector: 'app-dashboard-header',
   templateUrl: './dashboard-header.component.html',
-  styleUrls: ['./dashboard-header.component.scss']
+  styleUrls: ['./dashboard-header.component.scss'],
 })
 export class DashboardHeaderComponent implements OnInit {
   userInfo: UserInfo;
-  constructor(private userStoreService: UserStoreService) { }
+  constructor(private userStoreService: UserStoreService) {}
 
   ngOnInit(): void {
     this.fetchUserInfo();
@@ -18,7 +18,6 @@ export class DashboardHeaderComponent implements OnInit {
   private fetchUserInfo(): void {
     this.userStoreService.getUserInfo().subscribe((userInfo: UserInfo) => {
       this.userInfo = userInfo;
-    })
+    });
   }
-
 }

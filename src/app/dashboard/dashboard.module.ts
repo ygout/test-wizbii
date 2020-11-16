@@ -9,14 +9,17 @@ import { CommentItemComponent } from './comment-list/comment-item/comment-item.c
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
-  declarations: [DashboardComponent, DashboardHeaderComponent, FeedItemListComponent, FeedItemComponent, CommentItemComponent, CommentListComponent, TransformToUntilDatePipe],
-  imports: [
-    CommonModule,
-    FormsModule
+  declarations: [
+    DashboardComponent,
+    DashboardHeaderComponent,
+    FeedItemListComponent,
+    FeedItemComponent,
+    CommentItemComponent,
+    CommentListComponent,
+    TransformToUntilDatePipe,
   ],
-  exports: [DashboardComponent]
+  imports: [CommonModule, FormsModule],
+  exports: [DashboardComponent],
 })
-export class DashboardModule { }
+export class DashboardModule {}

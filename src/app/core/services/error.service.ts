@@ -9,7 +9,7 @@ export class ErrorService {
 
   /**
    * Handle error
-   * @param error
+   * @param error: Error
    */
   handleError(error: Error): void {
     console.error(error);

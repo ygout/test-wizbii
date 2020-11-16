@@ -1,4 +1,10 @@
 <div class="comment">
-    <app-comment-item [comment]="comment" *ngFor="let comment of feedItem.publication.comments"></app-comment-item>
-    <input (keyup.enter)="onAddComment()" type="text" [(ngModel)]="commentStr" class="add-comment" placeholder="Ajouter un commentaire ..."/>
+  <app-comment-item [comment]="comment" *ngFor="let comment of feedItem.publication.comments"></app-comment-item>
+  <input
+    (keyup.enter)="onAddComment()"
+    type="text"
+    [(ngModel)]="commentStr"
+    class="add-comment"
+    placeholder="Ajouter un commentaire ..."
+  />
 </div>
