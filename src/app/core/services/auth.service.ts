@@ -19,7 +19,7 @@ export class AuthService {
     private http: HttpClient,
     private errorService: ErrorService,
     private userStoreService: UserStoreService
-  ) { }
+  ) {}
 
   /**
    * Get the userInfo + token and set token into local storage
