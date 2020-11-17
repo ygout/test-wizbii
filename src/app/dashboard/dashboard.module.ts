@@ -8,6 +8,10 @@ import { FeedItemComponent } from './feed-item-list/feed-item/feed-item.componen
 import { CommentItemComponent } from './comment-list/comment-item/comment-item.component';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     CommentListComponent,
     TransformToUntilDatePipe,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NgxSpinnerModule],
   exports: [DashboardComponent],
 })
 export class DashboardModule {}

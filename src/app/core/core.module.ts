@@ -3,10 +3,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpTokenInterceptor } from './interceptors/http-token.interceptor';
 import { AuthService } from './services/auth.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     HttpClientModule
   ],

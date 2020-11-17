@@ -1,4 +1,5 @@
 <div class="dashboard">
   <app-dashboard-header></app-dashboard-header>
-  <app-feed-item-list *ngIf="feedItems" [feedItems]="feedItems"></app-feed-item-list>
+  <ngx-spinner></ngx-spinner>
+  <app-feed-item-list [feedItems]="feedItems"></app-feed-item-list>
 </div>
