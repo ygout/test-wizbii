@@ -14,7 +14,7 @@ import { UserStoreService } from './user-store.service';
 })
 export class AuthService {
   private TOKEN_KEY = 'token';
-  private readonly AUTH_URL = `${environment.API_BASE}/v1/account`;
+  public readonly AUTH_URL = `${environment.API_BASE}/v1/account`;
   constructor(
     private http: HttpClient,
     private errorService: ErrorService,
@@ -31,7 +31,6 @@ export class AuthService {
     formData.append('password', environment.credentials.password);
     formData.append('grant_type', environment.credentials.grant_type);
     formData.append('client_id', environment.credentials.client_id);
-
     return this.http.post<any>(`${this.AUTH_URL}/validate`, formData).pipe(
       map((res) => res as Account),
       map((account) => {

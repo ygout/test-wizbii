@@ -15,6 +15,9 @@ export class CommentListComponent implements OnInit {
   constructor(private userStoreService: UserStoreService, private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
+    this.fetchUserInfo();
+  }
+  private fetchUserInfo(): void {
     this.userStoreService.getUserInfo().subscribe((userInfo: UserInfo) => {
       this.userInfo = userInfo;
     });

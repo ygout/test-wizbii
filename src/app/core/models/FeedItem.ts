@@ -22,20 +22,18 @@ interface Publication {
   company: Company;
   content: string;
   tags: Tag[];
-  attachment_picture: string;
-  attachment_picture_source: string;
-  attachment_picture_width: number;
-  attachment_picture_height: number;
+  attachment_title?: string;
+  attachment_content?: string;
   comments: any[];
   likes: any[];
   reports: any[];
   delta: number;
-  shared_object_id: string;
-  shared_object_type: string;
-  shared_job: Sharedjob;
   shares: any[];
   mentions: any[];
   data_bag: any[];
+  shared_object_id?: string;
+  shared_object_type?: string;
+  shared_job?: Sharedjob;
 }
 
 interface Sharedjob {
@@ -48,8 +46,6 @@ interface Sharedjob {
   duration: string;
   contract: Contract;
   location: Location2;
-  salary: string;
-  salary_type: string;
   date_created: string;
   date_modified: string;
   language: string;
@@ -93,7 +89,7 @@ interface Location2 {
   country_short: string;
   points: Points;
   geo: Center;
-  extra: any;
+  extra: Extra;
 }
 
 interface Contract {
@@ -108,6 +104,47 @@ interface Contract {
   locale: string;
   duration: boolean;
 }
+
+interface Tag {
+  _id: string;
+  slug: string;
+  name: string;
+  type: string;
+  date_created: string;
+  date_modified: string;
+}
+
+interface Company {
+  _id: string;
+  slug: string;
+  date_created: string;
+  date_modified: string;
+  status: string;
+  state: string;
+  name: string;
+  tag_line: string;
+  is_client: boolean;
+  employees_number: string;
+  is_autocomplete: boolean;
+  industry: string;
+  location: Location;
+  language: string;
+  locale: string;
+  links: any[];
+  home_tab: Hometab;
+  recruitment_tab: Recruitmenttab;
+  tabs: any[];
+  recruiters: any[];
+  aliases: any[];
+  subsidiaries: any[];
+  should_redirect: boolean;
+  website: string;
+  followers: any[];
+  followed: boolean;
+  options: any[];
+  partners_validator_emails: any[];
+}
+
 interface Recruitmenttab {
   id: string;
   slug: string;
@@ -125,7 +162,10 @@ interface Hometab {
 interface Location {
   points: Points;
   geo: Center;
-  extra: any;
+  extra: Extra;
+}
+
+interface Extra {
 }
 
 interface Points {
@@ -133,90 +173,6 @@ interface Points {
 }
 
 interface Center {
-  lat: number;
-  lon: number;
-}
-interface Tag {
-  _id: string;
-  slug: string;
-  name: string;
-  type: string;
-  date_created: string;
-  date_modified: string;
-}
-
-interface Company {
-  _id: string;
-  slug: string;
-  date_created: string;
-  date_modified: string;
-  date_client: string;
-  status: string;
-  state: string;
-  name: string;
-  tag_line: string;
-  is_client: boolean;
-  employees_number: string;
-  is_autocomplete: boolean;
-  industry: string;
-  location: Location;
-  locale: string;
-  links: Link[];
-  logo: string;
-  banner: string;
-  banner_info: Bannerinfo;
-  home_tab: Hometab;
-  recruitment_tab: Hometab;
-  tabs: any[];
-  aliases: any[];
-  subsidiaries: any[];
-  should_redirect: boolean;
-  twitter_username: string;
-  website: string;
-  followed: boolean;
-  external_feeds: Externalfeed[];
-  high_res_logo: string;
-  high_res_banner: string;
-  options: any[];
-  partners_validator_emails: any[];
-}
-
-interface Externalfeed {
-  type: string;
-  url: string;
-}
-
-interface Hometab {
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-}
-
-interface Bannerinfo {
-  offset: Offset;
-  zoom: number;
-}
-
-interface Offset {
-  x: number;
-  y: number;
-}
-
-interface Link {
-  type: string;
-  url: string;
-  date_created: string;
-  date_modified: string;
-  title?: string;
-}
-
-interface Location {
-  geo: Geo;
-  extra: any;
-}
-
-interface Geo {
   lat: number;
   lon: number;
 }

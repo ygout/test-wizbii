@@ -10,7 +10,7 @@ import { ErrorService } from './error.service';
   providedIn: 'root',
 })
 export class DashboardService {
-  private DASHBOARD_URL = `${environment.API_BASE}/v2/dashboard/`;
+  public readonly DASHBOARD_URL = `${environment.API_BASE}/v2/dashboard/`;
   private feedItems = new BehaviorSubject<FeedItem[]>([]);
   feedItems$ = this.feedItems.asObservable();
 
@@ -21,7 +21,7 @@ export class DashboardService {
    */
   getFeedItems(params?: { direction: string }): Observable<FeedItem[]> {
     this.http
-      .post<any>(this.DASHBOARD_URL, {}, { params })
+      .post<any>(`${this.DASHBOARD_URL}`, {}, { params })
       .pipe(
         map((res) => res as Dashboard),
         map((dashboard: Dashboard) => dashboard.feed_items.feed_items),

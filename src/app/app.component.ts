@@ -9,9 +9,8 @@ import { AuthService } from './core/services/auth.service';
 export class AppComponent implements OnInit {
   title = 'test-wizbii';
 
-  constructor(private authService: AuthService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.authService.getToken().subscribe();
   }
 }

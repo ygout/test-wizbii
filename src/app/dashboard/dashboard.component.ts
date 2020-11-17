@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       .getToken()
       .pipe(
         mergeMap(() => {
-          return this.dashboardService.getFeedItems();
+          return this.dashboardService.getFeedItems({ direction: 'newest' });
         })
       )
       .subscribe((feedItems: FeedItem[]) => {

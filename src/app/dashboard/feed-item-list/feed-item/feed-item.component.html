@@ -18,8 +18,10 @@
       <li class="tag" *ngFor="let tag of feedItem.publication.tags">#{{ tag.name }}</li>
     </ul>
   </div>
-  <div class="card-row" *ngIf="feedItem.publication.content && !feedItem.publication.shared_job">
+  <div class="card-row" *ngIf="feedItem.publication.attachment_content && !feedItem.publication.shared_job">
+    <div class="content" [innerHTML]="feedItem.publication.attachment_content"></div>
     <div class="content" [innerHTML]="feedItem.publication.content"></div>
+
   </div>
   <div class="card-row full-width" *ngIf="feedItem.publication.attachment_picture">
     <figure class="attachment">
@@ -28,13 +30,12 @@
   </div>
   <div class="card-row" *ngIf="feedItem.publication.shared_job">
     <div class="content-row">
-      {{ feedItem.publication.shared_job.contract.title_short }} -
       {{ feedItem.publication.shared_job.contract.title }}
     </div>
     <div class="content-row">
-      {{ feedItem.publication.shared_job.location.country }} -
-      {{ feedItem.publication.shared_job.location.department }}-
-      {{ feedItem.publication.shared_job.location.display_value }}
+      {{ feedItem?.publication?.shared_job?.location?.country }} -
+      {{ feedItem?.publication.shared_job?.location?.department }} -
+      {{ feedItem?.publication.shared_job?.location?.display_value }}
     </div>
     <br /><strong>Mission:</strong><br />
     <br />

@@ -11,7 +11,8 @@ export class FeedItemComponent implements OnInit {
   isAlreadyThanx = false;
   constructor(private dashboardService: DashboardService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   /**
    * Send a thanx
    */
