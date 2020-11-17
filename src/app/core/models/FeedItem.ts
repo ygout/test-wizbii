@@ -24,6 +24,7 @@ interface Publication {
   tags: Tag[];
   attachment_title?: string;
   attachment_content?: string;
+  attachment_picture?: string;
   comments: any[];
   likes: any[];
   reports: any[];

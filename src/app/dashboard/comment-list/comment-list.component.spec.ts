@@ -1,9 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 import { Comment, FeedItem, UserInfo } from 'src/app/core/models';
 import { DashboardService } from 'src/app/core/services/dashboard.service';
 import { UserStoreService } from 'src/app/core/services/user-store.service';
 import { environment } from 'src/environments/environment';
+import { TransformToUntilDatePipe } from '../pipes/transform-to-until-date.pipe';
+import { CommentItemComponent } from './comment-item/comment-item.component';
 
 import { CommentListComponent } from './comment-list.component';
 
@@ -147,7 +150,7 @@ describe('CommentListComponent', () => {
         ],
         attachment_title: 'KW VICTORIA | Immobilier & Recrutement | Hyères',
         attachment_content:
-          "Le Market Center KW VICTORIA à Hyères recrute et forme des commerciaux en immobilier et accompagne les projets de vente et d'acquisition des clients.",
+          'Le Market Center KW VICTORIA à Hyères recrute et forme des commerciaux en immobilier et accompagne les projets de vente et d\'acquisition des clients.',
         comments: [],
         likes: [],
         reports: [],
@@ -189,7 +192,7 @@ describe('CommentListComponent', () => {
         { provide: UserStoreService, useValue: userStoreServiceStub },
         { provide: DashboardService, useValue: dashboardServiceStub },
       ],
-      declarations: [CommentListComponent],
+      declarations: [CommentListComponent, CommentItemComponent, TransformToUntilDatePipe],
     }).compileComponents();
   }));
 
@@ -197,10 +200,50 @@ describe('CommentListComponent', () => {
     fixture = TestBed.createComponent(CommentListComponent);
     component = fixture.componentInstance;
     component.feedItem = mockFeedItems[0];
+    component.userInfo = mockUserInfo;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should defined one CommentItemComponent', () => {
+    component.feedItem.publication.comments.push({
+      content: 'Salut je suis un test',
+      feedItemId: '1',
+      date: new Date().toString(),
+      likes: 0,
+      author: {
+        firstName: 'Test firstname',
+        lastName: 'Test lastname',
+      },
+    });
+    fixture.detectChanges();
+    const commentIemComponent = fixture.debugElement.queryAll(By.directive(CommentItemComponent));
+
+    expect(commentIemComponent.length).toBe(1);
+  });
+
+  it('should not defined CommentItemComponent', () => {
+    fixture.detectChanges();
+    const commentIemComponent = fixture.debugElement.queryAll(By.directive(CommentItemComponent));
+    expect(commentIemComponent).toEqual([]);
+  });
+
+  // it('should add one comment have been called', async(() => {
+  //   spyOn(component, 'onAddComment');
+  //   fixture.detectChanges();
+
+  //   const inputEl = fixture.nativeElement.querySelector('input');
+  //   const event = new KeyboardEvent('keypress', {
+  //     key: 'Enter',
+  //   });
+  //   inputEl.dispatchEvent(event);
+  //   fixture.detectChanges();
+
+  //   fixture.whenStable().then(() => {
+  //     expect(component.onAddComment).toHaveBeenCalled();
+  //   });
+  // }));
 });

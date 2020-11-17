@@ -1,4 +1,4 @@
-<section class="publication card" *ngIf="feedItem.type === 'publication'">
+<section class="card" *ngIf="feedItem && feedItem.type === 'publication'">
   <div class="card-row">
     <div class="poster">
       <div class="poster-images"></div>
@@ -18,7 +18,7 @@
       <li class="tag" *ngFor="let tag of feedItem.publication.tags">#{{ tag.name }}</li>
     </ul>
   </div>
-  <div class="card-row" *ngIf="feedItem.publication.attachment_content && !feedItem.publication.shared_job">
+  <div class="card-row" *ngIf="(feedItem.publication.attachment_content || feedItem.publication.content) && !feedItem.publication.shared_job">
     <div class="content" [innerHTML]="feedItem.publication.attachment_content"></div>
     <div class="content" [innerHTML]="feedItem.publication.content"></div>
 
@@ -29,24 +29,24 @@
     </figure>
   </div>
   <div class="card-row" *ngIf="feedItem.publication.shared_job">
-    <div class="content-row">
+    <div class="content-row shared-job-title">
       {{ feedItem.publication.shared_job.contract.title }}
     </div>
-    <div class="content-row">
+    <div class="content-row shared-job-location">
       {{ feedItem?.publication?.shared_job?.location?.country }} -
       {{ feedItem?.publication.shared_job?.location?.department }} -
       {{ feedItem?.publication.shared_job?.location?.display_value }}
     </div>
     <br /><strong>Mission:</strong><br />
     <br />
-    <div class="content" [innerHTML]="feedItem.publication.shared_job.mission"></div>
+    <div class="content shared-job-mission" [innerHTML]="feedItem.publication.shared_job.mission"></div>
     <br /><strong>Profile:</strong><br />
     <br />
-    <div class="content" [innerHTML]="feedItem.publication.shared_job.profile"></div>
+    <div class="content shared-job-profile" [innerHTML]="feedItem.publication.shared_job.profile"></div>
   </div>
   <div class="card-row">
     <div class="card-buttons">
-      <a (click)="onSendThanx()"><i class="fa fa-plus"></i> Envoyer un Thanx !</a>
+      <a class="send-thanx" (click)="onSendThanx()"><i class="fa fa-plus"></i> Envoyer un Thanx !</a>
       <a (click)="onShare()"><i class="fa fa-share"></i> Partager à un ami !</a>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FeedItem } from 'src/app/core/models';
 import { DashboardService } from 'src/app/core/services/dashboard.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { DashboardService } from 'src/app/core/services/dashboard.service';
   styleUrls: ['./feed-item.component.scss'],
 })
 export class FeedItemComponent implements OnInit {
-  @Input() feedItem;
+  @Input() feedItem: FeedItem;
   isAlreadyThanx = false;
   constructor(private dashboardService: DashboardService) {}
 

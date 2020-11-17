@@ -192,7 +192,7 @@ describe('DashboardService', () => {
         .getFeedItems({ direction: 'newest' })
         .pipe(skip(1))
         .subscribe(
-          (feedItems) => expect(feedItems).toEqual(expectedFeedItems, 'should return expeected feedItems'),
+          (feedItems) => expect(feedItems).toEqual(expectedFeedItems, 'should return expected feedItems'),
           fail
         );
 
@@ -241,7 +241,7 @@ describe('DashboardService', () => {
         lastName: 'Test lastname',
       },
     };
-    beforeEach(async(() => {
+    beforeEach(() => {
       TestBed.configureTestingModule({
         // Import the HttpClient mocking services
         imports: [HttpClientTestingModule],
@@ -258,7 +258,7 @@ describe('DashboardService', () => {
       const req = httpTestingController.expectOne(`${dashboardService.DASHBOARD_URL}`);
       // Respond with the mock feedItems
       req.flush(expectedDashboard);
-    }));
+    });
 
     afterEach(() => {
       // After every test, assert that there are no more pending requests.
@@ -269,7 +269,7 @@ describe('DashboardService', () => {
 
       dashboardService.addCommentOnFeedItem(comment);
       dashboardService.feedItems$.subscribe((feedItems: FeedItem[]) => {
-        expect(feedItems[0].publication.comments[0]).toEqual(comment, 'should return expected comment')
+        expect(feedItems[0].publication.comments[0]).toEqual(comment, 'should return expected comment');
       });
     });
     it('should add 2 comments into a feedItem', () => {

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FeedItem } from 'src/app/core/models';
 
 @Component({
   selector: 'app-feed-item-list',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./feed-item-list.component.scss'],
 })
 export class FeedItemListComponent implements OnInit {
-  @Input() feedItems;
+  @Input() feedItems: FeedItem[];
   constructor() {}
 
   ngOnInit(): void {}

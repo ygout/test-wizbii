@@ -32,4 +32,15 @@ describe('CommentItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display comment header information detectChanges()', () => {
+    const commentHeader = fixture.nativeElement.querySelector('.comment-header');
+    expect(commentHeader.textContent).toContain(`${component.comment.author.firstName}`);
+    expect(commentHeader.textContent).toContain(`${component.comment.author.lastName}`);
+  });
+
+  it('should display comment footer information detectChanges()', () => {
+    const commentHeader = fixture.nativeElement.querySelector('.comment-footer');
+    expect(commentHeader.textContent).toContain(`${component.comment.likes}`);
+  });
 });

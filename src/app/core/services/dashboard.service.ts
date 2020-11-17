@@ -40,14 +40,9 @@ export class DashboardService {
   addCommentOnFeedItem(comment: Comment): void {
     try {
       const feedItems = this.feedItems.getValue().slice();
-      const feedItem = feedItems.find(
-        (item: FeedItem) => item.id === comment.feedItemId
-      );
+      const feedItem = feedItems.find((item: FeedItem) => item.id === comment.feedItemId);
       const index = feedItems.indexOf(feedItem);
-      feedItem.publication.comments = [
-        ...feedItem.publication.comments,
-        comment,
-      ];
+      feedItem.publication.comments = [...feedItem.publication.comments, comment];
 
       feedItems[index] = feedItem;
       this.feedItems.next(feedItems);
@@ -55,19 +50,16 @@ export class DashboardService {
       this.errorService.handleError(error);
     }
   }
-/**
- * Send a thanx on a feed Item
- * @param feedItem: FeedItem
- */
+  /**
+   * Send a thanx on a feed Item
+   * @param feedItem: FeedItem
+   */
   sendThanxOnFeedItem(feedItem: FeedItem) {
     try {
       const feedItems = this.feedItems.getValue().slice();
       const index = feedItems.indexOf(feedItem);
 
-      feedItem.publication.likes = [
-        ...feedItem.publication.likes,
-        'one more like',
-      ];
+      feedItem.publication.likes = [...feedItem.publication.likes, 'one more like'];
       feedItems[index] = feedItem;
       this.feedItems.next(feedItems);
     } catch (error) {
